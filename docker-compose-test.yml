@@ -6,17 +6,17 @@ services:
     ports:
       - 2345:5432
     env_file:
-      - ./spotsat_back/.env.test
+      - ./back-end/.env.test
  
   node:
-    image: spotsat_back
+    image: back-end
     build:
-      context: ./spotsat_back
+      context: ./back-end
       dockerfile: Dockerfile
     restart: always
     ports:
-      - 4000:4000
+      - 5000:5000
     depends_on:
       - postgres  
     env_file:
-      - ./spotsat_back/.env.test
+      - ./back-end/.env.test
